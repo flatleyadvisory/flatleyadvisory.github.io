@@ -3,648 +3,563 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AlphaIQ | Flatley Advisory</title>
+<title>AlphaIQ. A second opinion on your portfolio</title>
+<meta name="description" content="A second opinion on your portfolio. Michael Flatley. 19 years institutional, $3B Deutsche Bank private bank book, Senior PM Merrill Lynch.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,wght@1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#faf7f2;color:#1a1816;font-family:'Inter',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;font-feature-settings:"ss01","cv11";overflow-x:hidden;line-height:1.5}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;color:inherit}
 
-:root {
-  --bg: #06090f;
-  --card: #0c1017;
-  --border: #1a2235;
-  --accent: #14b8a6;
-  --slate: #64748b;
-  --white: #ffffff;
-  --muted: #8892a6;
-  --text: #c8cdd8;
+:root{
+  --canvas:#faf7f2;
+  --line:#e5dfd4;
+  --line-2:#d8d0c1;
+  --text:#1a1816;
+  --text-2:#5a544c;
+  --text-3:#8a8378;
+  --navy:#1a3a5c;
+  --navy-2:#264a72;
+  --warn:#b8442e;
 }
 
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Inter', -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-  font-size: 18px;
-}
-
-.container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 28px;
-}
-
-header {
-  padding: 24px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.header-inner {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 0 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo-mark {
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--white);
-  letter-spacing: -0.02em;
-  text-decoration: none;
-}
-
-.logo-mark .alpha {
-  color: var(--accent);
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-weight: 400;
-}
-
-.logo-mark .iq { color: var(--slate); }
-
-.hero {
-  padding: 80px 0;
-  min-height: calc(100vh - 73px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.hero-headline {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 20px;
-}
-
-.hero-hook {
-  font-size: clamp(28px, 4vw, 38px);
-  font-weight: 600;
-  color: var(--white);
-  line-height: 1.3;
-  margin-bottom: 12px;
-}
-
-.hero-proof {
-  font-size: clamp(22px, 3vw, 28px);
-  color: var(--muted);
-  margin-bottom: 48px;
-}
-
-.hero-proof strong {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.hero-who {
-  font-size: 17px;
-  color: var(--text);
-  line-height: 1.8;
-  margin-bottom: 48px;
-  max-width: 600px;
-}
-
-.hero-who strong {
-  color: var(--white);
-}
-
-.hero-cta {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
-
-.hero-price {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 20px;
-  color: var(--white);
-  font-weight: 600;
-}
-
-.hero-price span {
-  font-weight: 400;
-  color: var(--muted);
-  font-size: 16px;
-}
-
-.cta-btn {
-  display: inline-block;
-  background: var(--accent);
-  color: var(--white);
-  padding: 16px 32px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  transition: all 0.2s ease;
-}
-
-.cta-btn:hover {
-  background: #0d9488;
-  transform: translateY(-2px);
-}
-
-.scroll-hint {
-  margin-top: 60px;
-  font-size: 14px;
-  color: var(--muted);
-}
-
-section {
-  padding: 80px 0;
-  border-top: 1px solid var(--border);
-}
-
-h2 {
-  font-size: 26px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 24px;
-}
-
-p {
-  margin-bottom: 20px;
-}
-
-p:last-child {
-  margin-bottom: 0;
-}
-
-.accent {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.case {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 32px;
-  margin: 32px 0;
-}
-
-.case-amount {
-  font-size: 44px;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.case-label {
-  font-size: 13px;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 20px;
-}
-
-.case p {
-  font-size: 16px;
-  color: var(--text);
-  line-height: 1.75;
-}
-
-.process-steps {
-  margin: 32px 0;
-}
-
-.process-step {
-  display: flex;
-  gap: 20px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.process-step:last-child {
-  border-bottom: none;
-}
-
-.process-num {
-  width: 36px;
-  height: 36px;
-  background: var(--accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--white);
-  flex-shrink: 0;
-}
-
-.process-content h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 6px;
-}
-
-.process-content p {
-  font-size: 16px;
-  color: var(--muted);
-  margin-bottom: 0;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin: 32px 0;
-}
-
-.price-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 24px;
-}
-
-.price-card.featured {
-  border-color: var(--accent);
-}
-
-.price-name {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-
-.price-amount {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--white);
-}
-
-.price-period {
-  font-size: 14px;
-  color: var(--muted);
-  margin-bottom: 12px;
-}
-
-.price-desc {
-  font-size: 14px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.about-row {
-  display: flex;
-  gap: 32px;
-  align-items: flex-start;
-}
-
-.about-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--border);
-  flex-shrink: 0;
-}
-
-.about-content p {
-  font-size: 17px;
-  line-height: 1.75;
-  margin-bottom: 16px;
-}
-
-.about-content p:last-child {
-  margin-bottom: 0;
-}
-
-.form-wrapper {
-  margin: 40px 0;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.form-group { display: flex; flex-direction: column; }
-.form-group.full { grid-column: span 2; }
-
-.form-group label {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  padding: 14px 16px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--white);
-  font-size: 16px;
-  font-family: inherit;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-}
-
-.form-group textarea { min-height: 100px; resize: vertical; }
-
-.form-group select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2364748b' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 16px;
-  background: var(--accent);
-  border: none;
-  border-radius: 8px;
-  color: var(--white);
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 16px;
-}
-
-.submit-btn:hover { background: #0d9488; }
-
-footer {
-  border-top: 1px solid var(--border);
-  padding: 48px 0;
-  text-align: center;
-}
-
-.footer-logo {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 8px;
-}
-
-.footer-logo .alpha {
-  color: var(--accent);
-  font-family: Georgia, serif;
-  font-style: italic;
-}
-
-.footer-logo .iq { color: var(--slate); }
-
-.footer-sub {
-  font-size: 11px;
-  color: var(--muted);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.footer-contact a {
-  color: var(--accent);
-  text-decoration: none;
-  font-size: 15px;
-}
-
-.footer-disclosure {
-  font-size: 12px;
-  color: var(--muted);
-  max-width: 540px;
-  margin: 24px auto 0;
-  opacity: 0.6;
-  line-height: 1.7;
-}
-
-@media (max-width: 600px) {
-  .hero { padding: 60px 0; min-height: auto; }
-  .hero-cta { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .pricing-grid, .form-grid { grid-template-columns: 1fr; }
-  .form-group.full { grid-column: span 1; }
-  .process-step { flex-direction: column; gap: 12px; }
-  .about-row { flex-direction: column; align-items: center; text-align: center; }
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:rgba(250,247,242,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px}
+.logo{display:flex;align-items:baseline;gap:14px;font-family:'Spectral',serif;font-size:24px;font-weight:500;letter-spacing:-.02em;color:var(--text);flex-shrink:0;line-height:1}
+.logo .a{color:var(--navy);font-style:italic;font-weight:400}
+.logo .by{font-family:'Inter',sans-serif;font-size:10px;color:var(--text-3);letter-spacing:.18em;font-weight:500;text-transform:uppercase}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{font-size:13px;color:var(--text-2);padding:8px 12px;transition:color .15s;font-weight:500;letter-spacing:-.005em}
+.nav-links a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy);color:#fff;padding:10px 18px;border-radius:2px;font-size:12.5px;font-weight:500;letter-spacing:.01em;transition:background .2s;border:1px solid var(--navy);flex-shrink:0}
+.nav-cta:hover{background:var(--navy-2)}
+
+/* TYPE */
+.eyebrow{font-family:'Inter',sans-serif;font-size:11px;color:var(--text-3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:20px;font-weight:500;line-height:1}
+.eyebrow.navy{color:var(--navy)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:2px;font-size:14px;font-weight:500;letter-spacing:0;transition:all .2s;cursor:pointer;font-family:'Inter',sans-serif;line-height:1}
+.btn-pri{background:var(--navy);color:#fff;border:1px solid var(--navy)}
+.btn-pri:hover{background:var(--navy-2)}
+.btn-pri::after{content:"→";font-size:16px;transition:transform .2s}
+.btn-pri:hover::after{transform:translateX(3px)}
+
+/* HERO. centered, three lines, one CTA. */
+.hero{padding:96px 40px 120px;max-width:1240px;margin:0 auto;text-align:center}
+.hero h1{font-family:'Spectral',serif;font-weight:400;letter-spacing:-.028em;line-height:1.1;color:var(--text);font-size:clamp(28px,3.8vw,56px);margin-bottom:16px;max-width:1240px;margin-left:auto;margin-right:auto}
+.hero h1 .line{display:block;margin-bottom:24px}
+.hero h1 .line:last-child{margin-bottom:0}
+.hero h1 .line.punch{color:var(--navy);font-style:italic;font-weight:400;margin-top:8px}
+
+/* WHY + BIO (two columns) */
+.why-bio{padding:88px 40px 0;max-width:1240px;margin:0 auto;border-top:1px solid var(--line)}
+.why-bio-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:80px;align-items:start}
+
+/* Product block: What is AlphaIQ + Why I created */
+.product-block h2{font-family:'Spectral',serif;font-size:clamp(34px,3.8vw,56px);font-weight:400;letter-spacing:-.024em;line-height:1.05;color:var(--text);margin-bottom:0}
+.product-block h2 em{font-style:italic;color:var(--navy);font-weight:400}
+.product-block .lead{font-family:'Spectral',serif;font-size:clamp(20px,2.1vw,26px);font-weight:500;color:var(--navy);line-height:1.35;letter-spacing:-.012em;margin-top:24px}
+.product-block .answer{font-family:'Spectral',serif;font-size:clamp(16px,1.7vw,19px);font-weight:400;color:var(--text);line-height:1.6;letter-spacing:-.008em;margin-top:18px}
+.product-block .answer strong{font-weight:500;color:var(--navy)}
+.product-block .closer{font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(15px,1.6vw,18px);font-weight:400;color:var(--navy);line-height:1.5;letter-spacing:-.005em;margin-top:16px}
+.col-product .why-block{margin-top:48px;padding-top:36px;border-top:1px solid var(--line)}
+.col{display:flex;flex-direction:column}
+.col h2{font-family:'Spectral',serif;font-size:clamp(28px,2.8vw,40px);font-weight:500;letter-spacing:-.02em;line-height:1.15;color:var(--text);margin-bottom:24px}
+.col h2 em{font-style:italic;color:var(--navy);font-weight:400}
+.col p{font-family:'Spectral',serif;font-size:17px;font-weight:400;color:var(--text);line-height:1.55;letter-spacing:-.008em;margin-bottom:14px}
+.col p strong{font-weight:500;color:var(--navy)}
+.col p em{font-style:italic;color:var(--text-2);font-family:'Source Serif 4',serif}
+.col p:last-child{margin-bottom:0}
+
+/* Bio column */
+.col-bio .photo{width:100%;max-width:340px;aspect-ratio:1/1;background:transparent;overflow:hidden;margin-bottom:24px;display:flex;align-items:flex-end;justify-content:center}
+.col-bio .photo img{width:100%;height:100%;object-fit:contain;display:block}
+.col-bio .creds{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--navy);border-bottom:1px solid var(--navy);margin-bottom:18px;max-width:460px}
+.col-bio .cred{background:var(--canvas);padding:14px 12px;display:flex;flex-direction:column;gap:6px}
+.col-bio .cred .num{font-family:'Spectral',serif;font-size:clamp(24px,2.4vw,32px);font-weight:300;letter-spacing:-.035em;line-height:.95;color:var(--navy)}
+.col-bio .cred .lbl{font-family:'Inter',sans-serif;font-size:9px;color:var(--text-3);letter-spacing:.15em;text-transform:uppercase;font-weight:600;line-height:1.3}
+.col-bio .loc{font-family:'Inter',sans-serif;font-size:12px;color:var(--text-2);letter-spacing:.04em;font-weight:500;padding-top:4px}
+
+/* Full-width coda below the two columns */
+.why-bio-coda{max-width:1240px;margin:56px auto 0;padding:32px 40px 88px;border-top:1px solid var(--navy)}
+.why-bio-coda p{font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(20px,2.2vw,28px);color:var(--navy);font-weight:500;line-height:1.4;letter-spacing:-.008em;text-align:center;max-width:920px;margin:0 auto}
+
+@media(max-width:980px){.why-bio-grid{grid-template-columns:1fr;gap:56px}.col-bio .photo{max-width:320px}}
+
+/* FINDINGS section */
+.findings{padding:96px 40px;max-width:1240px;margin:0 auto;border-top:1px solid var(--line)}
+.findings-head{margin-bottom:48px}
+.findings-head h2{font-family:'Spectral',serif;font-size:clamp(36px,4.6vw,68px);font-weight:400;letter-spacing:-.028em;line-height:1.04;color:var(--text);margin-bottom:20px}
+.findings-head h2 em{font-style:italic;color:var(--navy);font-weight:400}
+.findings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;padding-top:32px;border-top:1px solid var(--line)}
+.finding{display:flex;flex-direction:column}
+.finding .big{font-family:'Spectral',serif;font-size:clamp(40px,4.4vw,60px);font-weight:300;letter-spacing:-.045em;line-height:.9;color:var(--navy);font-variant-numeric:tabular-nums}
+.finding .lbl{font-family:'Inter',sans-serif;font-size:10.5px;color:var(--text-3);letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-top:10px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.finding .case-line{font-family:'Spectral',serif;font-size:15px;font-weight:400;color:var(--text);line-height:1.5;letter-spacing:-.005em;margin-bottom:10px}
+.finding .case-line:last-child{margin-bottom:0}
+.finding .case-tag{font-family:'Inter',sans-serif;font-size:9.5px;color:var(--text-3);letter-spacing:.15em;text-transform:uppercase;font-weight:600;margin-right:6px}
+.finding .case-tag.solve{color:var(--navy)}
+@media(max-width:880px){.findings-grid{grid-template-columns:1fr;gap:40px}}
+
+/* ALPHA SECTION */
+.alpha{padding:96px 40px;max-width:1240px;margin:0 auto;border-top:1px solid var(--line)}
+.alpha-head{margin-bottom:40px}
+.alpha-head h2{font-family:'Spectral',serif;font-size:clamp(36px,4.6vw,68px);font-weight:400;letter-spacing:-.028em;line-height:1.04;color:var(--text);margin-bottom:24px}
+.alpha-head h2 em{font-style:italic;color:var(--navy);font-weight:400}
+.alpha-setup{display:flex;flex-direction:column;gap:18px;max-width:1160px;margin-bottom:48px}
+.alpha-setup p{font-family:'Spectral',serif;font-size:clamp(18px,1.9vw,22px);font-weight:400;color:var(--text);line-height:1.5;letter-spacing:-.008em}
+.alpha-setup p strong{font-weight:500;color:var(--navy)}
+.alpha-setup p em{font-style:italic;color:var(--text-2);font-family:'Source Serif 4',serif}
+.alpha-prompt{margin-top:8px;padding-top:24px;border-top:1px solid var(--navy);font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(18px,1.9vw,22px);color:var(--navy);font-weight:500;letter-spacing:-.005em}
+
+.calc-shell{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start;padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.calc-controls{display:flex;flex-direction:column;gap:22px}
+.calc-pre{font-family:'Inter',sans-serif;font-size:10.5px;color:var(--navy);letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin-bottom:4px}
+.ctrl{display:flex;flex-direction:column;gap:10px}
+.ctrl-head{display:flex;justify-content:space-between;align-items:baseline}
+.ctrl-lbl{font-family:'Inter',sans-serif;font-size:11px;color:var(--text-3);letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+.ctrl-val{font-family:'Spectral',serif;font-size:22px;font-weight:400;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--text);line-height:1}
+.ctrl-val.navy{color:var(--navy);font-style:italic}
+.slider{width:100%;-webkit-appearance:none;appearance:none;height:1px;background:var(--line-2);outline:none;cursor:pointer;border-radius:0}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:14px;height:14px;background:var(--canvas);cursor:pointer;border-radius:50%;border:1.5px solid var(--navy);transition:transform .15s}
+.slider::-webkit-slider-thumb:hover{transform:scale(1.15);background:var(--navy)}
+.slider::-moz-range-thumb{width:14px;height:14px;background:var(--canvas);cursor:pointer;border-radius:50%;border:1.5px solid var(--navy)}
+.ctrl-hint{font-family:'Source Serif 4',serif;font-style:italic;font-size:13px;color:var(--text-3);line-height:1.4;letter-spacing:-.003em}
+
+.calc-result{display:flex;flex-direction:column;gap:24px}
+.res-cmp{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.res-cmp .lb{font-family:'Inter',sans-serif;font-size:10px;color:var(--text-3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;font-weight:500}
+.res-cmp .v{font-family:'Spectral',serif;font-size:clamp(28px,3.2vw,40px);font-weight:300;color:var(--text-2);letter-spacing:-.028em;font-variant-numeric:tabular-nums;line-height:.95}
+.res-cmp .alpha-r .v{color:var(--text)}
+.res-spark{height:60px}
+.res-spark svg{width:100%;height:50px;display:block}
+.res-spark .slbl{font-family:'Inter',sans-serif;font-size:10px;color:var(--text-3);letter-spacing:.15em;text-transform:uppercase;font-weight:500;margin-bottom:6px;display:block}
+.res-delta{padding-top:20px;border-top:1px solid var(--navy)}
+.res-delta .lb{font-family:'Inter',sans-serif;font-size:10.5px;color:var(--navy);letter-spacing:.18em;text-transform:uppercase;margin-bottom:10px;font-weight:600}
+.res-delta .v{font-family:'Spectral',serif;font-size:clamp(56px,7vw,104px);font-weight:300;letter-spacing:-.04em;line-height:.88;color:var(--navy);font-variant-numeric:tabular-nums}
+.res-delta .sub{font-family:'Source Serif 4',serif;font-style:italic;font-size:15px;color:var(--text-2);margin-top:10px}
+
+.alpha-payoff{margin-top:48px;display:flex;flex-direction:column;gap:18px;max-width:1160px}
+.alpha-payoff p{font-family:'Spectral',serif;font-size:clamp(18px,1.9vw,22px);font-weight:400;color:var(--text);line-height:1.5;letter-spacing:-.008em}
+.alpha-payoff p strong{font-weight:500;color:var(--navy)}
+.alpha-cta{margin-top:24px}
+
+@media(max-width:880px){.calc-shell{grid-template-columns:1fr;gap:40px;padding:24px 0}}
+
+/* MOSTLY ETFs */
+.etf{padding:96px 40px;max-width:1240px;margin:0 auto;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start}
+.etf .left h2{font-family:'Spectral',serif;font-size:clamp(32px,4vw,56px);font-weight:400;letter-spacing:-.028em;line-height:1.04;margin-bottom:20px;color:var(--text)}
+.etf .left h2 em{font-style:italic;color:var(--navy);font-weight:400}
+.etf .left p{font-family:'Spectral',serif;font-size:17px;color:var(--text);line-height:1.55;margin-bottom:14px;letter-spacing:-.008em}
+.etf .left p strong{color:var(--navy);font-weight:500}
+.etf-form{display:flex;flex-direction:column;gap:18px;padding-top:24px;border-top:1px solid var(--navy)}
+.etf-form .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.etf-form .field{display:flex;flex-direction:column;gap:6px}
+.etf-form label{font-family:'Inter',sans-serif;font-size:10px;color:var(--text-3);letter-spacing:.15em;text-transform:uppercase;font-weight:600}
+.etf-form input,.etf-form textarea{padding:11px 0;background:transparent;border:none;border-bottom:1px solid var(--line-2);color:var(--text);font-size:14.5px;outline:none;transition:border-color .2s;font-family:'Inter',sans-serif;border-radius:0}
+.etf-form textarea{min-height:88px;border:1px solid var(--line-2);padding:12px;font-size:13.5px;resize:vertical;font-family:'Inter',sans-serif}
+.etf-form input:focus,.etf-form textarea:focus{border-bottom-color:var(--navy);border-color:var(--navy)}
+.etf-form input::placeholder,.etf-form textarea::placeholder{color:var(--text-3)}
+.etf-form button{align-self:flex-start;padding:13px 24px;background:var(--navy);color:#fff;border-radius:2px;font-size:13px;font-weight:500;letter-spacing:.01em;cursor:pointer;border:1px solid var(--navy);transition:background .2s;font-family:'Inter',sans-serif;margin-top:6px}
+.etf-form button:hover{background:var(--navy-2)}
+.etf-form button::after{content:" →"}
+.etf-success{display:none;padding:12px 0;font-size:13.5px;color:var(--navy);font-weight:500;border-top:1px solid var(--navy);margin-top:6px}
+@media(max-width:880px){.etf{grid-template-columns:1fr;gap:40px}}
+
+/* HOW IT WORKS */
+.how{padding:96px 40px;max-width:1240px;margin:0 auto;border-top:1px solid var(--line)}
+.how-head{margin-bottom:48px}
+.how-head h2{font-family:'Spectral',serif;font-size:clamp(36px,4.6vw,68px);font-weight:400;letter-spacing:-.028em;line-height:1.04;color:var(--text);margin-bottom:20px}
+.how-head h2 em{font-style:italic;color:var(--navy);font-weight:400}
+.how-list{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;padding-top:32px;border-top:1px solid var(--line)}
+.pcard{display:flex;flex-direction:column;gap:12px}
+.pnum{font-family:'Spectral',serif;font-size:72px;font-weight:300;letter-spacing:-.04em;line-height:.85;color:var(--navy);font-style:italic;margin-bottom:8px}
+.pcard h3{font-family:'Spectral',serif;font-size:22px;font-weight:500;letter-spacing:-.02em;color:var(--text);line-height:1.15}
+.pcard p{font-family:'Spectral',serif;font-size:15.5px;color:var(--text);line-height:1.55;font-weight:400;letter-spacing:-.005em}
+.pcard p strong{color:var(--navy);font-weight:500}
+.pcard .upload-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;background:var(--navy);color:#fff;border-radius:2px;font-size:12.5px;font-weight:500;letter-spacing:.01em;font-family:'Inter',sans-serif;align-self:flex-start;margin-top:10px;transition:background .2s;border:1px solid var(--navy)}
+.pcard .upload-btn:hover{background:var(--navy-2)}
+.pcard .upload-btn::after{content:"→";font-size:14px}
+.pcard .note{font-family:'Source Serif 4',serif;font-style:italic;font-size:13px;color:var(--text-3);margin-top:6px;letter-spacing:-.003em}
+.how-footnote{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(17px,1.8vw,20px);color:var(--text);line-height:1.5;letter-spacing:-.005em;max-width:880px}
+.how-footnote em{color:var(--navy)}
+@media(max-width:880px){.how-list{grid-template-columns:1fr;gap:40px}}
+
+/* CONTACT */
+.contact{padding:96px 40px;max-width:1240px;margin:0 auto;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:start}
+.contact .left h2{font-family:'Spectral',serif;font-size:clamp(36px,4.4vw,60px);font-weight:400;letter-spacing:-.028em;line-height:1.04;margin-bottom:20px;color:var(--text)}
+.contact .left h2 em{font-style:italic;color:var(--navy);font-weight:400}
+.contact .left p{font-family:'Spectral',serif;font-size:17px;color:var(--text);line-height:1.55;letter-spacing:-.008em}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding-top:24px;border-top:1px solid var(--navy)}
+.form-grid .full{grid-column:1/-1}
+.form-grid label{display:flex;flex-direction:column;gap:6px;font-family:'Inter',sans-serif;font-size:10px;color:var(--text-3);letter-spacing:.15em;text-transform:uppercase;font-weight:600}
+.form-grid input,.form-grid select,.form-grid textarea{padding:11px 0;background:transparent;border:none;border-bottom:1px solid var(--line-2);color:var(--text);font-size:14.5px;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;border-radius:0}
+.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus{border-bottom-color:var(--navy)}
+.form-grid input::placeholder,.form-grid textarea::placeholder{color:var(--text-3)}
+.form-grid textarea{resize:vertical;min-height:80px;border:1px solid var(--line-2);padding:12px;font-size:13.5px;border-radius:0}
+.form-grid select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%231a3a5c' stroke-width='1.5' fill='none'/></svg>");background-repeat:no-repeat;background-position:right 4px center;padding-right:28px}
+.form-grid .submit-row{margin-top:14px;grid-column:1/-1;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.form-grid button{padding:13px 26px;background:var(--navy);color:#fff;border-radius:2px;font-size:13px;font-weight:500;letter-spacing:.01em;cursor:pointer;border:1px solid var(--navy);transition:background .25s;font-family:'Inter',sans-serif}
+.form-grid button:hover{background:var(--navy-2)}
+.form-grid button::after{content:" →"}
+.form-grid .small{font-family:'Inter',sans-serif;font-size:10.5px;color:var(--text-3);letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.form-success{display:none;padding:12px 0;font-size:13.5px;color:var(--navy);font-weight:500;grid-column:1/-1;border-top:1px solid var(--navy)}
+@media(max-width:880px){.contact{grid-template-columns:1fr;gap:40px}.form-grid{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{padding:48px 40px 32px;border-top:1px solid var(--line)}
+footer .inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start}
+footer .left{display:flex;flex-direction:column;gap:6px}
+footer .logo-mark{display:inline;font-family:'Spectral',serif;font-size:20px;font-weight:500;letter-spacing:-.02em;color:var(--text);line-height:1}
+footer .logo-mark .a{color:var(--navy);font-style:italic;font-weight:400}
+footer .ent{font-family:'Inter',sans-serif;font-size:11.5px;color:var(--text-3);letter-spacing:.04em;font-weight:500}
+footer .right{text-align:right}
+footer a.email{font-family:'Inter',sans-serif;font-size:12.5px;color:var(--navy);letter-spacing:.01em;font-weight:500;border-bottom:1px solid transparent;transition:border-color .2s}
+footer a.email:hover{border-bottom-color:var(--navy)}
+.disclaimer{max-width:1240px;margin:24px auto 0;padding:20px 40px 0;border-top:1px solid var(--line)}
+.disclaimer p{font-family:'Inter',sans-serif;font-size:11px;color:var(--text-3);line-height:1.65;letter-spacing:.01em;font-weight:400;max-width:880px}
+.disclaimer p strong{color:var(--text-2);font-weight:600}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:920px){.nav-links{display:none}}
+@media(max-width:640px){
+  .hero,.three-col,.alpha,.etf,.how,.contact{padding-left:24px;padding-right:24px}
+  .hero{padding-top:64px;padding-bottom:88px}
+  .nav-inner{padding:14px 24px}
+  .logo .by{display:none}
+  footer .inner{grid-template-columns:1fr;gap:20px}
+  footer .right{text-align:left}
 }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <a href="#" class="logo-mark">Alph<span class="alpha">α</span><span class="iq">IQ</span></a>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo"><span>Alph<span class="a">α</span>IQ</span><span class="by">FLATLEY ADVISORY GROUP LLC</span></a>
+    <div class="nav-links">
+      <a href="#why">Why</a>
+      <a href="#alpha">Alpha</a>
+      <a href="#etf">ETF audit</a>
+      <a href="#how">How it works</a>
+    </div>
+    <a href="#contact" class="nav-cta">Get a second opinion</a>
   </div>
-</header>
+</nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-headline">Second opinion on your portfolio</div>
-    <div class="hero-hook">You're paying for custom.<br>You're getting off-the-shelf.</div>
-    <div class="hero-proof">One client? <strong>$1.2M difference.</strong></div>
-    
-    <p class="hero-who"><strong>Michael Flatley.</strong> 19 years. Billions managed. I know where the fees are hidden, where the risk is, and whether your advisor is earning their cut.</p>
-    
-    <div class="hero-cta">
-      <div class="hero-price">$1,500 <span>Full audit</span></div>
-      <a href="#contact" class="cta-btn">Get your second opinion</a>
+  <h1>
+    <span class="line">You're paying for custom wealth management.</span>
+    <span class="line">You're getting off-the-shelf.</span>
+    <span class="line punch">And it's costing you millions.</span>
+  </h1>
+  <a href="#contact" class="btn btn-pri">Get a second opinion on your portfolio</a>
+</section>
+
+<!-- WHY + BIO (two columns) -->
+<section class="why-bio reveal">
+  <div class="why-bio-grid">
+
+    <div class="col col-product" id="why">
+
+      <div class="product-block">
+        <h2>What is <em>AlphaIQ</em>?</h2>
+        <p class="lead">AlphaIQ is institutional-grade portfolio analysis, built for individual investors.</p>
+        <p class="answer"><strong>Every position. Every fee. Every overlap. Every risk. Every tax dollar.</strong> Scored on a five-dimension framework. Delivered as a Health Score and a full diagnostic report.</p>
+        <p class="closer">The numbers your advisor should be showing you. The questions they should be answering.</p>
+      </div>
+
+      <div class="why-block">
+        <div class="eyebrow navy">Why I created AlphaIQ</div>
+        <p>In my nearly 20 years in this industry, I've watched it shift from building portfolios to scaling products. I built AlphaIQ to find what gets lost in that shift.</p>
+        <p>Most advisors stopped picking stocks. They scale models. Similar allocations for everyone. Active fees. Passive results. You will never beat the benchmark if you are passively tracking it, and your advisor should know that.</p>
+        <p><strong>AlphaIQ finds what gets lost when nobody is paying attention.</strong></p>
+      </div>
+
     </div>
-    
-    <div class="scroll-hint">↓ Keep reading</div>
+
+    <div class="col col-bio">
+      <div class="eyebrow navy">About</div>
+      <h2>Michael <em>Flatley</em>.</h2>
+      <div class="photo"><img src="mike_flatley_headshot.png" alt="Michael Flatley"></div>
+      <div class="creds">
+        <div class="cred"><div class="num">19</div><div class="lbl">Years</div></div>
+        <div class="cred"><div class="num">$3B</div><div class="lbl">Deutsche Bank · Largest US PB book</div></div>
+        <div class="cred"><div class="num">$1B</div><div class="lbl">Merrill Lynch · Senior Equity PM</div></div>
+      </div>
+      <div class="loc">Charleston, SC · Serving clients nationally</div>
+    </div>
+
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <h2>Why I built AlphaIQ</h2>
-    <p>I built this for my own clients first. I wanted to find alpha consistently. To optimize every portfolio I touched. It worked.</p>
-    <p>Then I started seeing what was happening everywhere else.</p>
-    <p>New clients coming in with nothing but ETFs. No customization. No strategy. Just models. The same models everyone else gets.</p>
-    <p>The art of building a portfolio is dying. Advisors aren't picking stocks anymore. They're scaling products. They're prioritizing what's easy for them, not what's best for you.</p>
-    <p><strong>People work hard for their money. They deserve someone who will work hard to grow it.</strong></p>
-    <p>That's why I'm offering this to everyone now.</p>
+<div class="why-bio-coda reveal">
+  <p>People work hard for their money. They deserve their money to work hard for them.</p>
+</div>
+
+<!-- WHAT I'VE FOUND -->
+<section class="findings reveal" id="findings">
+  <div class="findings-head">
+    <div class="eyebrow navy">What I've found</div>
+    <h2>Hidden costs. <em>Real money.</em></h2>
   </div>
-</section>
-
-<section>
-  <div class="container">
-    <h2>What I've found</h2>
-    
-    <div class="case">
-      <div class="case-amount">$1.2M</div>
-      <div class="case-label">Performance difference</div>
-      <p>A couple with $2M in international mutual funds. They thought they were in best-in-class funds for the region. That's what their advisor told them.</p>
-      <p>I modeled what would have happened with direct indexing instead. Same exposure. Fraction of the fees. Full tax-loss harvesting.</p>
-      <p><strong>Four years: 15.98% annualized vs 4.32%. Max drawdown 20% vs 31%.</strong></p>
-      <p>They weren't doing fine. They were bleeding money and had no idea.</p>
+  <div class="findings-grid">
+    <div class="finding">
+      <div class="big">$1.2M</div>
+      <div class="lbl">Performance gap · 4 yrs</div>
+      <div class="case-line"><span class="case-tag">What</span> International equity mutual fund portfolio.</div>
+      <div class="case-line"><span class="case-tag">Problem</span> High fees, surprise tax bills from the fund's own trading, manager underperformance.</div>
+      <div class="case-line"><span class="case-tag solve">Solution</span> Owning the underlying index stocks directly. Lower fees, more tax control, higher after-tax returns with less risk.</div>
     </div>
-
-    <div class="case">
-      <div class="case-amount">$421K</div>
-      <div class="case-label">Positioning gap</div>
-      <p>All-ETF portfolio. Low cost. Diversified. A very common portfolio for wealth management clients today.</p>
-      <p>I replaced the passive approach with an active one with the same exposures. Four-year gap: $421,000. Sharpe ratio 1.14 vs 0.44.</p>
-      <p>They weren't paying too much. They were positioned wrong. No one checked.</p>
+    <div class="finding">
+      <div class="big">$421K</div>
+      <div class="lbl">Positioning gap · 4 yrs</div>
+      <div class="case-line"><span class="case-tag">What</span> All-ETF portfolio.</div>
+      <div class="case-line"><span class="case-tag">Problem</span> Overlap between funds. Zero active management.</div>
+      <div class="case-line"><span class="case-tag solve">Solution</span> A hand-built version with the same market coverage. Higher returns, lower risk.</div>
     </div>
-
-    <div class="case">
-      <div class="case-amount">$750K</div>
-      <div class="case-label">Unmanaged concentration</div>
-      <p>Three-quarters of a million in a single stock. No exit plan. No hedge. Just hope.</p>
-      <p>I reviewed multiple ways to reduce concentrated positions with them and they decided that covered calls were a great way to generate income while they reduced their position gradually over time.</p>
-      <p>They went from hoping to planning.</p>
+    <div class="finding">
+      <div class="big">$750K</div>
+      <div class="lbl">Unmanaged concentration</div>
+      <div class="case-line"><span class="case-tag">What</span> Single stock concentration.</div>
+      <div class="case-line"><span class="case-tag">Problem</span> No exit plan. No hedge. Zero advisor guidance to avoid liability.</div>
+      <div class="case-line"><span class="case-tag solve">Solution</span> A strategic plan. Covered call strategy to generate income and reduce the position over time.</div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <h2>How it works</h2>
-    
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="process-num">1</div>
-        <div class="process-content">
-          <h3>Upload</h3>
-          <p>Submit your statements through a secure portal. Any custodian. Any account type. Takes five minutes.</p>
+<!-- ALPHA SECTION -->
+<section class="alpha reveal" id="alpha">
+  <div class="alpha-head">
+    <div class="eyebrow">The Alpha Gap</div>
+    <h2>You pay an advisor to beat the market.<br>Not <em>track it</em>.</h2>
+  </div>
+
+  <div class="alpha-setup">
+    <p><strong>This is where you're silently capping your wealth.</strong></p>
+    <p><em>Alpha</em> is the return your manager adds above a benchmark like the S&amp;P 500. If your portfolio returns the same as the index, your alpha is zero. You are paying active fees for passive results.</p>
+    <p>Two percentage points of alpha, compounded over a career, is the difference between retiring comfortable and retiring rich. Or between retiring and not.</p>
+    <p>Most investors never measure it. They look at their returns in isolation and feel fine. <em>The benchmark would have made them more.</em></p>
+    <p class="alpha-prompt">Drag the sliders. Use your real numbers.</p>
+  </div>
+
+  <div class="calc-shell">
+    <div class="calc-controls">
+      <div class="calc-pre">Your assumptions</div>
+      <div class="ctrl">
+        <div class="ctrl-head"><span class="ctrl-lbl">Starting balance</span><span class="ctrl-val" id="amt-out">$1,000,000</span></div>
+        <input type="range" class="slider" id="amt" min="100000" max="10000000" step="50000" value="1000000">
+        <div class="ctrl-hint">Your current portfolio value.</div>
+      </div>
+      <div class="ctrl">
+        <div class="ctrl-head"><span class="ctrl-lbl">Time horizon</span><span class="ctrl-val navy" id="yrs-out">35 years</span></div>
+        <input type="range" class="slider" id="yrs" min="5" max="50" step="1" value="35">
+        <div class="ctrl-hint">Years until you need to draw down.</div>
+      </div>
+      <div class="ctrl">
+        <div class="ctrl-head"><span class="ctrl-lbl">Passive return</span><span class="ctrl-val" id="base-out">8%</span></div>
+        <input type="range" class="slider" id="base" min="3" max="12" step="0.5" value="8">
+        <div class="ctrl-hint">Long-run market average is roughly 8 to 10%.</div>
+      </div>
+      <div class="ctrl">
+        <div class="ctrl-head"><span class="ctrl-lbl">+ Alpha target</span><span class="ctrl-val navy" id="alpha-out">+2%</span></div>
+        <input type="range" class="slider" id="alpha-in" min="0" max="5" step="0.25" value="2">
+        <div class="ctrl-hint">What active management should add above the benchmark.</div>
+      </div>
+    </div>
+    <div class="calc-result">
+      <div class="res-cmp">
+        <div>
+          <div class="lb">Passive</div>
+          <div class="v" id="r1">$14.79M</div>
+        </div>
+        <div class="alpha-r">
+          <div class="lb">+ Alpha</div>
+          <div class="v" id="r2">$28.10M</div>
         </div>
       </div>
-      <div class="process-step">
-        <div class="process-num">2</div>
-        <div class="process-content">
-          <h3>Review</h3>
-          <p>I run everything through AlphaIQ. Every position. Every fee. Every overlap. Every gap.</p>
-        </div>
+      <div class="res-spark">
+        <span class="slbl">Compound growth</span>
+        <svg id="sparkChart" viewBox="0 0 200 50" preserveAspectRatio="none">
+          <polyline id="sparkBase" points="0,46 50,38 100,28 150,18 200,8" fill="none" stroke="#8a8378" stroke-width="1.2"/>
+          <polyline id="sparkAlpha" points="0,46 50,32 100,18 150,8 200,2" fill="none" stroke="#1a3a5c" stroke-width="2"/>
+        </svg>
       </div>
-      <div class="process-step">
-        <div class="process-num">3</div>
-        <div class="process-content">
-          <h3>Verdict</h3>
-          <p>You get a full diagnostic. What's working. What's not. What it's costing you. What you can do about it.</p>
-        </div>
+      <div class="res-delta">
+        <div class="lb">The difference</div>
+        <div class="v" id="delta">$13.31M</div>
+        <div class="sub">Either earned for you, or quietly left on the table.</div>
       </div>
     </div>
-    
-    <p><strong>No asset transfer. No advisor change required. What you do with the information is your call.</strong></p>
   </div>
-</section>
 
-<section>
-  <div class="container">
-    <h2>Pricing</h2>
-    <p>One-time audit: <span class="accent">$1,500.</span></p>
-    <p>If I find nothing, $1,500 for peace of mind.</p>
-    <p>I usually find something. When I do, $1,500 pays for itself many times over.</p>
-    <p>The sooner you look, the sooner you stop losing.</p>
-
-    <div class="pricing-grid">
-      <div class="price-card featured">
-        <div class="price-name">Portfolio Audit</div>
-        <div class="price-amount">$1,500</div>
-        <div class="price-period">one-time</div>
-        <div class="price-desc">Full review.</div>
-      </div>
-      <div class="price-card">
-        <div class="price-name">Quarterly Oversight</div>
-        <div class="price-amount">$2,500</div>
-        <div class="price-period">per quarter</div>
-        <div class="price-desc">Ongoing monitoring. Quarterly updates.</div>
-      </div>
-      <div class="price-card">
-        <div class="price-name">Annual Retainer</div>
-        <div class="price-amount">$7,500</div>
-        <div class="price-period">per year</div>
-        <div class="price-desc">Full access. Priority response.</div>
-      </div>
-      <div class="price-card">
-        <div class="price-name">Unlimited Access</div>
-        <div class="price-amount">$500</div>
-        <div class="price-period">per month</div>
-        <div class="price-desc">Live dashboard. See your accounts anytime.</div>
-      </div>
+  <div class="alpha-payoff">
+    <p>Is your advisor actually keeping up with the market? Would they tell you if they weren't?</p>
+    <p><strong>AlphaIQ will.</strong></p>
+    <div class="alpha-cta">
+      <a href="#contact" class="btn btn-pri">Get your AlphaIQ diagnostic</a>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <h2>About</h2>
-    <div class="about-row">
-      <img src="mike_flatley_headshot.png" alt="Michael Flatley" class="about-photo">
-      <div class="about-content">
-        <p><strong>Michael Flatley.</strong> 19 years in wealth management and institutional portfolio management. I managed the largest US Private Bank book at Deutsche Bank. $3 billion. I was Senior Equity Portfolio Manager for a $1 billion advisory team at Merrill Lynch.</p>
-        <p>I've watched this industry shift from building portfolios to scaling products. I built AlphaIQ to find what gets lost in that shift.</p>
-        <p>Charleston, SC. Serving clients nationally.</p>
-      </div>
-    </div>
+<!-- MOSTLY ETFs -->
+<section class="etf reveal" id="etf">
+  <div class="left">
+    <div class="eyebrow navy">ETF Quick Audit</div>
+    <h2>Do you have an <em>all-ETF</em> portfolio?</h2>
+    <p>AlphaIQ takes a deeper dive into each fund than your advisor.</p>
+    <p>Paste your tickers and percentages. AlphaIQ provides transparency into what the ETFs actually hold underneath, where the same names show up across multiple funds, and how much you're paying in active fees for what amounts to index returns.</p>
+    <p>Initial read back in <strong>three business days</strong>.</p>
   </div>
+
+  <form class="etf-form" id="etf-form">
+    <div class="row">
+      <div class="field"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
+      <div class="field"><label>Total $ value</label><input type="text" name="total" placeholder="$1,000,000"></div>
+    </div>
+    <div class="field"><label>Tickers + allocations (one per line)</label><textarea name="tickers" placeholder="VOO 40%
+QQQ 25%
+VEA 15%
+BND 10%
+JEPI 10%" required></textarea></div>
+    <button type="submit">Start ETF Audit</button>
+    <div class="etf-success" id="etf-success">✓ Got it. Initial review back within three business days.</div>
+  </form>
 </section>
 
-<section id="contact">
-  <div class="container">
-    <h2>Get your second opinion</h2>
-    <p>Fill this out. I'll be in touch within 24 hours.</p>
-
-    <div class="form-wrapper">
-      <form action="https://formsubmit.co/michael@flatleyadvisory.com" method="POST">
-        <input type="hidden" name="_subject" value="New Portfolio Review Request">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" name="first_name" required>
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" name="last_name" required>
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" required>
-          </div>
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" name="phone">
-          </div>
-          <div class="form-group full">
-            <label>Estimated Investable Assets</label>
-            <select name="assets" required>
-              <option value="">Select</option>
-              <option value="Under $500K">Under $500K</option>
-              <option value="$500K - $1M">$500K - $1M</option>
-              <option value="$1M - $3M">$1M - $3M</option>
-              <option value="$3M - $5M">$3M - $5M</option>
-              <option value="$5M+">$5M+</option>
-            </select>
-          </div>
-          <div class="form-group full">
-            <label>What's on your mind?</label>
-            <textarea name="notes" placeholder="What would you want me to look at?"></textarea>
-          </div>
-        </div>
-        <button type="submit" class="submit-btn">Get your second opinion</button>
-      </form>
+<!-- HOW IT WORKS -->
+<section class="how reveal" id="how">
+  <div class="how-head">
+    <div class="eyebrow">How it works</div>
+    <h2>Three <em>easy</em> steps.</h2>
+  </div>
+  <div class="how-list">
+    <div class="pcard">
+      <div class="pnum">1</div>
+      <h3>Upload your statement.</h3>
+      <p>Sign in. Upload your brokerage statement. Any custodian. Any account type.</p>
+      <a href="https://alphaiq-cwjf80n42-flatley-advisory-group.vercel.app/upload" target="_blank" rel="noopener" class="upload-btn">Upload your statement</a>
+      <div class="note">Encrypted. Private. Magic-link login, no passwords stored.</div>
+    </div>
+    <div class="pcard">
+      <div class="pnum">2</div>
+      <h3>I review.</h3>
+      <p>I run everything through AlphaIQ. Every position. Every fee. Every overlap. Every gap.</p>
+    </div>
+    <div class="pcard">
+      <div class="pnum">3</div>
+      <h3>You get the verdict.</h3>
+      <p>A full diagnostic. What's working. What's not. What it's costing you.</p>
     </div>
   </div>
+  <p class="how-footnote">No asset transfer. No advisor change required. <em>What you do with the information is your call.</em></p>
 </section>
 
+<!-- CONTACT -->
+<section class="contact reveal" id="contact">
+  <div class="left">
+    <div class="eyebrow navy">Get a second opinion</div>
+    <h2>Want more information or have questions <em>before getting started</em>?</h2>
+    <p>Fill out your information and I'll be in touch within 24 hours.</p>
+  </div>
+
+  <form class="form-grid" id="contact-form">
+    <label>First name<input type="text" name="first" required></label>
+    <label>Last name<input type="text" name="last" required></label>
+    <label class="full">Email<input type="email" name="email" required></label>
+    <label class="full">Phone<input type="tel" name="phone"></label>
+    <label class="full">Estimated investable assets
+      <select name="aum" required>
+        <option value="">Select</option>
+        <option>Under $500K</option>
+        <option>$500K to $1M</option>
+        <option>$1M to $3M</option>
+        <option>$3M to $5M</option>
+        <option>$5M+</option>
+      </select>
+    </label>
+    <label class="full">What's on your mind?
+      <textarea name="message"></textarea>
+    </label>
+    <div class="form-success" id="form-success">✓ Message received. I'll be in touch within 24 hours.</div>
+    <div class="submit-row">
+      <button type="submit">Get your second opinion</button>
+      <span class="small">Reply within 24 hours</span>
+    </div>
+  </form>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <div class="container">
-    <div class="footer-logo">Alph<span class="alpha">α</span><span class="iq">IQ</span></div>
-    <div class="footer-sub">Flatley Advisory Group LLC</div>
-    <div class="footer-contact">
-      <a href="mailto:michael@flatleyadvisory.com">michael@flatleyadvisory.com</a>
+  <div class="inner">
+    <div class="left">
+      <span class="logo-mark">Alph<span class="a">α</span>IQ</span>
+      <div class="ent">Flatley Advisory Group LLC</div>
     </div>
-    <div class="footer-disclosure">
-      Flatley Advisory Group LLC provides portfolio diagnostic and educational services only. This is not investment advice, and no advisory relationship is established unless explicitly agreed in writing. Past performance is
+    <div class="right">
+      <a href="mailto:michael@flatleyadvisory.com" class="email">michael@flatleyadvisory.com →</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    <p>Flatley Advisory Group LLC provides portfolio diagnostic and educational services only. This is not investment advice, and no advisory relationship is established unless explicitly agreed in writing. <strong>Past performance does not guarantee future results.</strong></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var amt=document.getElementById('amt'),yrs=document.getElementById('yrs'),baseS=document.getElementById('base'),alphaS=document.getElementById('alpha-in');
+  var amtO=document.getElementById('amt-out'),yrsO=document.getElementById('yrs-out'),baseO=document.getElementById('base-out'),alphaO=document.getElementById('alpha-out');
+  var r1=document.getElementById('r1'),r2=document.getElementById('r2'),delta=document.getElementById('delta');
+  var sparkBase=document.getElementById('sparkBase'),sparkAlpha=document.getElementById('sparkAlpha');
+  function fmt(v){return '$'+Number(v).toLocaleString()}
+  function fmtM(v){return v>=1e6?'$'+(v/1e6).toFixed(2)+'M':v>=1e3?'$'+(v/1e3).toFixed(0)+'K':'$'+Math.round(v)}
+  function calc(){
+    var a=+amt.value,y=+yrs.value,b=+baseS.value,al=+alphaS.value;
+    amtO.textContent=fmt(a);yrsO.textContent=y+' years';baseO.textContent=b+'%';alphaO.textContent='+'+al+'%';
+    var v1=a*Math.pow(1+b/100,y),v2=a*Math.pow(1+(b+al)/100,y);
+    r1.textContent=fmtM(v1);r2.textContent=fmtM(v2);delta.textContent=fmtM(v2-v1);
+    var N=10,maxV=Math.max(v1,v2),bp=[],ap=[];
+    for(var i=0;i<=N;i++){
+      var t=(y*i)/N,vb=a*Math.pow(1+b/100,t),va=a*Math.pow(1+(b+al)/100,t),x=(i/N)*200;
+      bp.push(x+','+(50-(vb/maxV)*46).toFixed(1));
+      ap.push(x+','+(50-(va/maxV)*46).toFixed(1));
+    }
+    sparkBase.setAttribute('points',bp.join(' '));
+    sparkAlpha.setAttribute('points',ap.join(' '));
+  }
+  if(amt&&yrs&&baseS&&alphaS){[amt,yrs,baseS,alphaS].forEach(function(i){i.addEventListener('input',calc)});calc();}
+
+  function bindForm(formId, successId){
+    var f=document.getElementById(formId); if(!f)return;
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var data={}; Array.from(new FormData(f).entries()).forEach(function(p){data[p[0]]=p[1]});
+      console.log('[AlphaIQ] '+formId+':',data);
+      var ok=document.getElementById(successId); if(ok)ok.style.display='block';
+      var btn=f.querySelector('button[type=submit]'); if(btn){btn.disabled=true;btn.textContent='Submitted ✓';}
+    });
+  }
+  bindForm('contact-form','form-success');
+  bindForm('etf-form','etf-success');
+
+  var reveals=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:0.1});
+    reveals.forEach(function(r){io.observe(r)});
+  } else { reveals.forEach(function(r){r.classList.add('in')}); }
+})();
+</script>
+</body>
+</html>
