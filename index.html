@@ -179,9 +179,9 @@ input,select,textarea{font-family:inherit;color:inherit}
 .how-head{margin-bottom:48px}
 .how-head h2{font-family:'Spectral',serif;font-size:clamp(36px,4.6vw,68px);font-weight:400;letter-spacing:-.028em;line-height:1.04;color:var(--text);margin-bottom:20px}
 .how-head h2 em{font-style:italic;color:var(--navy);font-weight:400}
-.how-list{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;padding-top:32px;border-top:1px solid var(--line)}
+.how-list{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding-top:32px;border-top:1px solid var(--line)}
 .pcard{display:flex;flex-direction:column;gap:12px}
-.pnum{font-family:'Spectral',serif;font-size:72px;font-weight:300;letter-spacing:-.04em;line-height:.85;color:var(--navy);font-style:italic;margin-bottom:8px}
+.pnum{font-family:'Spectral',serif;font-size:64px;font-weight:300;letter-spacing:-.04em;line-height:.85;color:var(--navy);font-style:italic;margin-bottom:8px}
 .pcard h3{font-family:'Spectral',serif;font-size:22px;font-weight:500;letter-spacing:-.02em;color:var(--text);line-height:1.15}
 .pcard p{font-family:'Spectral',serif;font-size:15.5px;color:var(--text);line-height:1.55;font-weight:400;letter-spacing:-.005em}
 .pcard p strong{color:var(--navy);font-weight:500}
@@ -191,7 +191,8 @@ input,select,textarea{font-family:inherit;color:inherit}
 .pcard .note{font-family:'Source Serif 4',serif;font-style:italic;font-size:13px;color:var(--text-3);margin-top:6px;letter-spacing:-.003em}
 .how-footnote{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(17px,1.8vw,20px);color:var(--text);line-height:1.5;letter-spacing:-.005em;max-width:880px}
 .how-footnote em{color:var(--navy)}
-@media(max-width:880px){.how-list{grid-template-columns:1fr;gap:40px}}
+@media(max-width:1080px){.how-list{grid-template-columns:repeat(2,1fr);gap:40px}}
+@media(max-width:600px){.how-list{grid-template-columns:1fr;gap:36px}}
 
 /* CONTACT */
 .contact{padding:96px 40px;max-width:1240px;margin:0 auto;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1.15fr;gap:80px;align-items:start}
@@ -276,11 +277,10 @@ footer a.email:hover{border-bottom-color:var(--navy)}
 
       <div class="product-block">
         <h2>What is <em>AlphaIQ</em>?</h2>
-        <p class="lead">AlphaIQ is the methodology I use to manage active equity portfolios.</p>
-        <p class="answer">It evaluates a portfolio one position at a time. What it costs, what it's exposed to, where holdings overlap, where return or tax efficiency is being given up.</p>
-        <p class="answer">It analyzes tens of thousands of data points to score each stock. The higher the score, the more likely the stock is to beat the market. That scoring is how I generate alpha in my strategies and keep risk in check.</p>
-        <p class="answer">I built it for my own clients. The audit runs your portfolio through the same process and reports what it finds.</p>
-        <p class="closer">You're getting the system I manage money with, run against the portfolio you already have.</p>
+        <p class="lead">AlphaIQ is the proprietary methodology I use to evaluate active equity portfolios.</p>
+        <p class="answer">It analyzes tens of thousands of data points to evaluate a portfolio one position at a time: underlying costs, true factor exposure, structural asset overlaps, and where tax efficiency is being left on the table.</p>
+        <p class="answer">I built this framework for my own institutional clients. The AlphaIQ diagnostic runs your current portfolio through this exact same environment, mapping your holdings against institutional risk and cost benchmarks.</p>
+        <p class="closer">You get the system I manage money with, run against the portfolio you already have.</p>
       </div>
 
       <div class="why-block">
@@ -421,9 +421,9 @@ footer a.email:hover{border-bottom-color:var(--navy)}
   <div class="left">
     <div class="eyebrow navy">ETF Quick Audit</div>
     <h2>Do you have an <em>all-ETF</em> portfolio?</h2>
-    <p>AlphaIQ takes a deeper dive into each fund than your advisor.</p>
-    <p>Paste your tickers and percentages. AlphaIQ provides transparency into what the ETFs actually hold underneath, where the same names show up across multiple funds, and how much you're paying in active fees for what amounts to index returns.</p>
-    <p>Initial read back in <strong>three business days</strong>.</p>
+    <p>AlphaIQ looks deeper into your funds than traditional advisory software.</p>
+    <p>Paste your tickers and percentages below. AlphaIQ generates an instant transparency report showing exactly what your ETFs hold underneath, where the same stocks are silently overlapping across multiple funds, and whether you are paying active fees for passive index returns.</p>
+    <p>Initial diagnostic report delivered within <strong>three business days</strong>.</p>
   </div>
 
   <form class="etf-form" id="etf-form">
@@ -442,25 +442,30 @@ JEPI 10%" required></textarea></div>
 <section class="how reveal" id="how">
   <div class="how-head">
     <div class="eyebrow">How it works</div>
-    <h2>Three steps to the <em>transparency</em> you deserve.</h2>
+    <h2>Four steps to the <em>transparency</em> you deserve.</h2>
   </div>
   <div class="how-list">
     <div class="pcard">
       <div class="pnum">1</div>
-      <h3>Upload your statement.</h3>
-      <p>Sign in. Upload your brokerage statement. Any custodian. Any account type.</p>
-      <a href="https://alphaiq-cwjf80n42-flatley-advisory-group.vercel.app/upload" target="_blank" rel="noopener" class="upload-btn">Upload your statement</a>
-      <div class="note">Encrypted. Private. Magic-link login, no passwords stored.</div>
+      <h3>Profile.</h3>
+      <p>Tell me about your portfolio and what you want from it. Your goals, your timeline, how you handle risk. Takes five minutes.</p>
+      <a href="profile.html" class="upload-btn">Start your profile</a>
     </div>
     <div class="pcard">
       <div class="pnum">2</div>
-      <h3>I review.</h3>
-      <p>I run everything through AlphaIQ. Every position. Every fee. Every overlap. Every gap.</p>
+      <h3>Upload.</h3>
+      <p>Submit your statements through a secure portal. Any custodian. Any account type.</p>
+      <div class="note">Encrypted. Private. Magic-link login, no passwords stored.</div>
     </div>
     <div class="pcard">
       <div class="pnum">3</div>
-      <h3>You get the verdict.</h3>
-      <p>A full diagnostic. What's working. What's not. What it's costing you.</p>
+      <h3>Review.</h3>
+      <p>I run everything through AlphaIQ. Every position. Every fee. Every overlap. Every gap.</p>
+    </div>
+    <div class="pcard">
+      <div class="pnum">4</div>
+      <h3>Verdict.</h3>
+      <p>You get a full diagnostic. What's working. What's not. What it's costing you. What you can do about it.</p>
     </div>
   </div>
   <p class="how-footnote">No asset transfer. No advisor change required. <em>What you do with the information is your call.</em></p>
