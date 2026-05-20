@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlphaIQ — Portfolio Diagnostic Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Serif+4:ital,wght@1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--canvas:#faf7f2;--line:#e5dfd4;--line-2:#d8d0c1;--text:#1a1816;--text-2:#5a544c;--text-3:#8a8378;--navy:#1a3a5c;--navy-2:#264a72;--green:#3a7d44;--green-bg:#eef3ec;--red:#b8442e;--red-bg:#f6eae6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--canvas);min-height:100vh;padding-bottom:80px;font-family:'Inter',sans-serif;color:var(--text);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+.bar{position:sticky;top:0;z-index:50;background:rgba(250,247,242,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line);padding:16px 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:baseline;gap:12px;font-family:'Spectral',serif;font-size:22px;font-weight:500;letter-spacing:-.02em;color:var(--text);line-height:1}
+.logo .a{color:var(--navy);font-style:italic;font-weight:400}
+.logo .by{font-family:'Inter',sans-serif;font-size:9px;color:var(--text-3);letter-spacing:.18em;font-weight:500;text-transform:uppercase}
+.pr{display:flex;align-items:center;gap:12px}
+.pb{width:130px;height:3px;background:var(--line-2);overflow:hidden}
+.pf{height:100%;background:var(--navy);transition:width .4s ease}
+.sn{font-family:'Inter',sans-serif;font-size:11px;color:var(--navy);font-weight:600;min-width:52px;text-align:right;letter-spacing:.04em}
+.hero{padding:48px 32px 0;text-align:center}
+.hero h1{font-family:'Spectral',serif;font-size:clamp(28px,3.4vw,42px);font-weight:400;letter-spacing:-.022em;color:var(--text);margin-bottom:12px;line-height:1.08}
+.hero h1 em{font-style:italic;color:var(--navy);font-weight:400}
+.hero p{font-family:'Inter',sans-serif;font-size:14px;color:var(--text-2);max-width:480px;margin:0 auto;line-height:1.55}
+.fw{max-width:640px;margin:44px auto 0;padding:0 28px}
+.step{display:none}
+.step.active{display:block}
+.stitle{font-family:'Inter',sans-serif;font-size:11px;font-weight:600;color:var(--navy);letter-spacing:.18em;text-transform:uppercase;margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.qb{margin-bottom:32px}
+.ql{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:14px;display:flex;align-items:flex-start;gap:10px;line-height:1.45}
+.qn{background:var(--navy);color:#fff;font-family:'Inter',sans-serif;font-size:10px;font-weight:600;width:21px;height:21px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.opts{display:flex;flex-wrap:wrap;gap:9px}
+.opt{background:transparent;border:1px solid var(--line-2);border-radius:2px;padding:10px 16px;font-family:'Inter',sans-serif;font-size:13px;color:var(--text-2);cursor:pointer;transition:all .15s;font-weight:500;line-height:1.35;text-align:left}
+.opt:hover{border-color:var(--navy);color:var(--navy)}
+.opt.sel{background:#fff;border-color:var(--navy);color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
+.opt.sg{background:var(--green-bg);border-color:var(--green);color:var(--green);box-shadow:inset 0 0 0 1px var(--green)}
+.opt.sr{background:var(--red-bg);border-color:var(--red);color:var(--red);box-shadow:inset 0 0 0 1px var(--red)}
+.hint{font-family:'Source Serif 4',serif;font-style:italic;font-size:12px;color:var(--text-3);margin-top:9px}
+.txt{width:100%;max-width:240px;background:#fff;border:1px solid var(--line-2);border-radius:2px;padding:11px 14px;font-family:'Inter',sans-serif;font-size:14px;color:var(--text);transition:border-color .15s}
+.txt:focus{outline:none;border-color:var(--navy);box-shadow:inset 0 0 0 1px var(--navy)}
+.txt::placeholder{color:var(--text-3)}
+.contact-block{margin-top:8px;margin-bottom:32px}
+.cl{font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:14px}
+.txt.wide{max-width:100%;margin-bottom:10px;display:block}
+.err{font-family:'Inter',sans-serif;font-size:12.5px;color:var(--red);margin-top:10px;min-height:16px}
+.disc{border-left:2px solid var(--navy);padding:12px 16px;margin-top:24px;background:rgba(26,58,92,.03)}
+.disc p{font-family:'Inter',sans-serif;font-size:11.5px;color:var(--text-2);line-height:1.6}
+.nav{max-width:640px;margin:36px auto 0;padding:24px 28px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.bb{background:transparent;border:1px solid var(--line-2);color:var(--text-2);padding:11px 22px;border-radius:2px;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}
+.bb:hover{border-color:var(--navy);color:var(--navy)}
+.bn{background:var(--navy);border:1px solid var(--navy);color:#fff;padding:11px 30px;border-radius:2px;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:background .2s;letter-spacing:.01em}
+.bn:hover{background:var(--navy-2)}
+.bn::after{content:" \2192"}
+.dots{display:flex;gap:7px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--line-2);transition:all .2s}
+.dot.act{background:var(--navy);width:20px;border-radius:3px}
+.done{text-align:center;padding:64px 24px}
+.dc{width:62px;height:62px;border:2px solid var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:28px;color:var(--navy)}
+.done h2{font-family:'Spectral',serif;font-size:32px;font-weight:400;color:var(--text);margin-bottom:12px;letter-spacing:-.02em}
+.done h2 em{font-style:italic;color:var(--navy)}
+.done p{font-family:'Inter',sans-serif;font-size:14px;color:var(--text-2);max-width:380px;margin:0 auto 32px;line-height:1.6}
+.db{display:inline-flex;align-items:center;gap:8px;background:var(--navy);border:1px solid var(--navy);color:#fff;padding:14px 34px;border-radius:2px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:background .2s;letter-spacing:.01em}
+.db:hover{background:var(--navy-2)}
+.db::after{content:" \2192"}
+@media(max-width:520px){.bar{padding:14px 20px}.pb{width:90px}.fw,.nav{padding-left:20px;padding-right:20px}}
+</style>
+</head>
+<body>
+<div class="bar">
+  <div>
+    <div class="logo"><span>Alph<span class="a">&#945;</span>IQ</span></div>
+    <div class="by">By Flatley Advisory Group LLC</div>
+  </div>
+  <div class="pr">
+    <div class="pb"><div class="pf" id="pf" style="width:25%"></div></div>
+    <span class="sn" id="sl">1 of 4</span>
+  </div>
+</div>
+<div class="hero">
+  <h1>Portfolio diagnostic <em>profile</em></h1>
+  <p>About five minutes. It helps me tailor your AlphaIQ report to your actual situation.</p>
+</div>
+<div class="fw">
+
+  <div class="step active" id="s1">
+    <div class="stitle">Step 1 &middot; About you and your goals</div>
+    <div class="qb"><div class="ql"><span class="qn">1</span>What is your age?</div><div class="opts">
+      <button class="opt" data-k="age" data-v="Under 35">Under 35</button>
+      <button class="opt" data-k="age" data-v="35–44">35–44</button>
+      <button class="opt" data-k="age" data-v="45–54">45–54</button>
+      <button class="opt" data-k="age" data-v="55–64">55–64</button>
+      <button class="opt" data-k="age" data-v="65+">65+</button>
+    </div></div>
+    <div class="qb"><div class="ql"><span class="qn">2</span>What is your annual income?</div><div class="opts">
+      <button class="opt" data-k="inc" data-v="Under $150K">Under $150K</button>
+      <button class="opt" data-k="inc" data-v="$150K–$300K">$150K–$300K</button>
+      <button class="opt" data-k="inc" data-v="$300K–$500K">$300K–$500K</button>
+      <button class="opt" data-k="inc" data-v="$500K–$1M">$500K–$1M</button>
+      <button class="opt" data-k="inc" data-v="$1M+">$1M+</button>
+    </div></div>
+    <div class="qb"><div class="ql"><span class="qn">3</span>What is your investable net worth?</div><div class="opts">
+      <button class="opt" data-k="nw" data-v="Under $500K">Under $500K</button>
+      <button class="opt" data-k="nw" data-v="$500K–$1M">$500K–$1M</button>
+      <button class="opt" data-k="nw" data-v="$1M–$3M">$1M–$3M</button>
+      <button class="opt" data-k="nw" data-v="$3M–$5M">$3M–$5M</button>
+      <button class="opt" data-k="nw" data-v="$5M+">$5M+</button>
+    </div></div>
+    <div class="qb"><div class="ql"><span class="qn">4</span>What is your primary investment objective?</div><div class="opts">
+      <button class="opt" data-k="ob" data-v="Long-term growth">Long-term growth</button>
+      <button class="opt" data-k="ob" data-v="Wealth preservation">Wealth preservation</button>
+      <button class="opt" data-k="ob" data-v="Income generation">Income generation</button>
+      <button class="opt" data-k="ob" data-v="Tax efficiency">Tax efficiency</button>
+      <button class="opt" data-k="ob" data-v="Balanced growth and income">Balanced growth and income</button>
+    </div></div>
+    <div class="qb"><div class="ql"><span class="qn">5</span>What is your investment time horizon?</div><div class="opts">
+      <button class="opt" data-k="ho" data-v="Under 3 years">Under 3 years</button>
+      <button class="opt" data-k="ho" data-v="3–5 years">3–5 years</button>
+      <button class="opt" data-k="ho" data-v="5–10 years">5–10 years</button>
+      <button class="opt" data-k="ho" data-v="10–20 years">10–20 years</button>
+      <button class="opt" data-k="ho" data-v="20+ years">20+ years</button>
+    </div></div>
+    <div class="qb"><div class="ql"><span class="qn">6</span>If your portfolio dropped 20% in one quarter, your instinct would be to:</div><div class="opts">
+      <button class="opt" data-k="ri" data-cls="sr" data-v="Sell. Protect what's left.">Sell. Protect what's left.</button>
+      <button class="opt" data-k="ri" data-v="Reduce and watch">Reduce and watch</button>
+      <button class="opt" data-k="ri" data-v="Hold the course">Hold the course</button>
+      <button class="opt" data-k="ri" data-cls="sg" data-v="Buy more. It's an opportunity.">Buy more. It's an opportunity.</button>
+    </div></div>
+    <div class="qb"><div class="ql"><span class="qn">7</span>Do you have any near-term cash or liquidity needs?</div><div class="opts">
+      <button class="opt" data-k="lq" data-multi="1" data-v="No near-term needs">No near-term needs</button>
+      <button class="opt" data-k="lq" data-multi="1" data-v="Yes, ongoing lifestyle and living expenses">Yes, ongoing lifestyle and living expenses</button>
+      <button class="opt" data-k="lq" data-multi="1" data-v="Yes, a major planned purchase (home, vehicle, renovation)">Yes, a major planned purchase (home, vehicle, renovation)</button>
+      <button class="opt" data-k="lq" data-multi="1" data-v="Yes, education funding (college, private school, tuition)">Yes, education funding (college, private school, tuition)</button>
+      <button class="opt" data-k="lq" data-multi="1" data-v="Yes, a business investment or capital need">Yes, a business investment or capital need</button>
+      <button class="opt" data-k="lq" data-multi="1" data-v="Yes, an upcoming life event (retirement, marriage, divorce)">Yes, an upcoming life event (retirement, marriage, divorce)</button>
+      <button class="opt" data-k="lq" data-multi="1" data-v="Yes, legacy or gifting intentions">Yes, legacy or gifting intentions</button>
+    </div><div class="hint">Select all that apply</div></div>
+    <div class="qb"><div class="ql"><span class="qn">8</span>Beyond your investments, which of these areas are currently unmet or underserved?</div><div class="opts">
+      <button class="opt" data-k="um" data-multi="1" data-v="Estate planning (wills, trusts, powers of attorney)">Estate planning (wills, trusts, powers of attorney)</button>
+      <button class="opt" data-k="um" data-multi="1" data-v="Beneficiary and titling review">Beneficiary and titling review</button>
+      <button class="opt" data-k="um" data-multi="1" data-v="Tax planning and optimization">Tax planning and optimization</button>
+      <button class="opt" data-k="um" data-multi="1" data-v="Retirement income and distribution planning">Retirement income and distribution planning</button>
+      <button class="opt" data-k="um" data-multi="1" data-v="Insurance and risk protection review">Insurance and risk protection review</button>
+      <button class="opt" data-k="um" data-multi="1" data-v="Business succession or exit planning">Business succession or exit planning</button>
+      <button class="opt" data-k="um" data-multi="1" data-v="Charitable and philanthropic giving strategy">Charitable and philanthropic giving strategy</button>
+      <button class="opt" data-k="um" data-multi="1" data-v="Social Security and Medicare planning">Social Security and Medicare planning</button>
+      <button class="opt" data-k="um" data-multi="1" data-v="Long-term care planning">Long-term care planning</button>
+      <button class="opt" data-k="um" data-multi="1" data-v="None, I feel well covered across the board">None, I feel well covered across the board</button>
+    </div><div class="hint">Select all that apply</div></div>
+  </div>
+
+  <div class="step" id="s2">
+    <div class="stitle">Step 2 &middot; Your portfolio</div>
+    <div class="qb"><div class="ql"><span class="qn">9</span>Where are your accounts currently held?</div><div class="opts">
+      <button class="opt" data-k="cu" data-multi="1" data-v="Schwab">Schwab</button>
+      <button class="opt" data-k="cu" data-multi="1" data-v="Fidelity">Fidelity</button>
+      <button class="opt" data-k="cu" data-multi="1" data-v="Merrill Lynch">Merrill Lynch</button>
+      <button class="opt" data-k="cu" data-multi="1" data-v="Morgan Stanley">Morgan Stanley</button>
+      <button class="opt" data-k="cu" data-multi="1" data-v="Vanguard">Vanguard</button>
+      <button class="opt" data-k="cu" data-multi="1" data-v="Farther">Farther</button>
+      <button class="opt" data-k="cu" data-multi="1" data-v="Other">Other</button>
+    </div><div class="hint">Select all that apply</div></div>
+    <div class="qb"><div class="ql"><span class="qn">10</span>What types of accounts do you have?</div><div class="opts">
+      <button class="opt" data-k="ac" data-multi="1" data-v="Taxable brokerage">Taxable brokerage</button>
+      <button class="opt" data-k="ac" data-multi="1" data-v="Traditional IRA">Traditional IRA</button>
+      <button class="opt" data-k="ac" data-multi="1" data-v="Roth IRA">Roth IRA</button>
+      <button class="opt" data-k="ac" data-multi="1" data-v="401(k)/403(b)">401(k)/403(b)</button>
+      <button class="opt" data-k="ac" data-multi="1" data-v="Trust">Trust</button>
+      <button class="opt" data-k="ac" data-multi="1" data-v="529 / Education">529 / Education</button>
+    </div><div class="hint">Select all that apply</div></div>
+    <div class="qb"><div class="ql"><span class="qn">11</span>How is your portfolio currently structured?</div><div class="opts">
+      <button class="opt" data-k="st" data-v="Mostly ETFs">Mostly ETFs</button>
+      <button class="opt" data-k="st" data-v="Mostly mutual funds">Mostly mutual funds</button>
+      <button class="opt" data-k="st" data-v="Mostly individual stocks">Mostly individual stocks</button>
+      <button class="opt" data-k="st" data-v="Mix of stocks and ETFs">Mix of stocks and ETFs</button>
+      <button class="opt" data-k="st" data-v="Mix of all three">Mix of all three</button>
+      <button class="opt" data-k="st" data-v="Not sure">Not sure</button>
+    </div></div>
+    <div class="qb"><div class="ql"><span class="qn">12</span>What is your relationship management fee?</div>
+      <input class="txt" type="text" data-k="mf" placeholder="e.g. 1.00%">
+      <div class="hint">Type in the percentage. Leave blank if you are not sure.</div></div>
+    <div class="qb"><div class="ql"><span class="qn">13</span>What is your estimated total fund expense ratio?</div><div class="opts">
+      <button class="opt" data-k="er" data-v="I don't hold any funds or ETFs">I don't hold any funds or ETFs</button>
+      <button class="opt" data-k="er" data-v="Under 0.10%">Under 0.10%</button>
+      <button class="opt" data-k="er" data-v="0.10% to 0.25%">0.10% to 0.25%</button>
+      <button class="opt" data-k="er" data-v="0.26% to 0.50%">0.26% to 0.50%</button>
+      <button class="opt" data-k="er" data-v="0.51% to 1.00%">0.51% to 1.00%</button>
+      <button class="opt" data-k="er" data-v="Over 1.00%">Over 1.00%</button>
+      <button class="opt" data-k="er" data-v="I have no idea">I have no idea</button>
+    </div></div>
+  </div>
+
+  <div class="step" id="s3">
+    <div class="stitle">Step 3 &middot; What you want</div>
+    <div class="qb"><div class="ql"><span class="qn">14</span>When it comes to your portfolio, what do you want more of?</div><div class="opts">
+      <button class="opt" data-k="wa" data-multi="1" data-v="Visibility into what I own">Visibility into what I own</button>
+      <button class="opt" data-k="wa" data-multi="1" data-v="Transparency on costs">Transparency on costs</button>
+      <button class="opt" data-k="wa" data-multi="1" data-v="More active management">More active management</button>
+      <button class="opt" data-k="wa" data-multi="1" data-v="Regular check-ins">Regular check-ins</button>
+      <button class="opt" data-k="wa" data-multi="1" data-v="Tax-smart decisions">Tax-smart decisions</button>
+      <button class="opt" data-k="wa" data-multi="1" data-v="A clearer strategy">A clearer strategy</button>
+      <button class="opt" data-k="wa" data-multi="1" data-v="Peace of mind">Peace of mind</button>
+    </div><div class="hint">Select all that apply</div></div>
+    <div class="qb"><div class="ql"><span class="qn">15</span>If you had the right tools to support you, how involved would you want to be in managing your investments?</div><div class="opts">
+      <button class="opt" data-k="iv" data-v="Hands-off. Just handle it.">Hands-off. Just handle it.</button>
+      <button class="opt" data-k="iv" data-v="Keep me informed, you decide">Keep me informed, you decide</button>
+      <button class="opt" data-k="iv" data-v="Collaborate. I want input.">Collaborate. I want input.</button>
+      <button class="opt" data-k="iv" data-v="Very involved. I make the final calls.">Very involved. I make the final calls.</button>
+    </div></div>
+    <div class="qb"><div class="ql"><span class="qn">16</span>In an ideal world, how much ongoing visibility would you want into your portfolio?</div><div class="opts">
+      <button class="opt" data-k="lp" data-v="Real-time. I want to see performance and positions anytime.">Real-time. I want to see performance and positions anytime.</button>
+      <button class="opt" data-k="lp" data-v="Monthly or quarterly check-ins are enough">Monthly or quarterly check-ins are enough</button>
+      <button class="opt" data-k="lp" data-v="I prefer hands-off between formal reviews">I prefer hands-off between formal reviews</button>
+    </div></div>
+    <div class="qb"><div class="ql"><span class="qn">17</span>How do you feel about advanced technology playing a role in managing your portfolio?</div><div class="opts">
+      <button class="opt" data-k="al" data-v="Completely comfortable. If there's a thoughtful, data-driven process behind it, I trust it to act.">Completely comfortable. If there's a thoughtful, data-driven process behind it, I trust it to act.</button>
+      <button class="opt" data-k="al" data-v="Comfortable, but I want to approve any action before it happens">Comfortable, but I want to approve any action before it happens</button>
+      <button class="opt" data-k="al" data-v="I'd want my advisor to have access to this and weigh in before anything changes">I'd want my advisor to have access to this and weigh in before anything changes</button>
+      <button class="opt" data-k="al" data-v="I prefer human judgment over automated decisions">I prefer human judgment over automated decisions</button>
+    </div></div>
+  </div>
+
+  <div class="step" id="s4">
+    <div class="stitle">Step 4 &middot; Your concerns</div>
+    <div class="qb"><div class="ql"><span class="qn">18</span>What would you most like to understand better about your portfolio?</div><div class="opts">
+      <button class="opt" data-k="co" data-multi="1" data-v="What I actually own">What I actually own</button>
+      <button class="opt" data-k="co" data-multi="1" data-v="Whether my risk level is right">Whether my risk level is right</button>
+      <button class="opt" data-k="co" data-multi="1" data-v="What I'm paying in fees">What I'm paying in fees</button>
+      <button class="opt" data-k="co" data-multi="1" data-v="How it compares to alternatives">How it compares to alternatives</button>
+      <button class="opt" data-k="co" data-multi="1" data-v="Tax efficiency">Tax efficiency</button>
+      <button class="opt" data-k="co" data-multi="1" data-v="Whether I'm on track">Whether I'm on track</button>
+      <button class="opt" data-k="co" data-multi="1" data-v="What happens in a downturn">What happens in a downturn</button>
+    </div><div class="hint">Select all that apply</div></div>
+    <div class="qb"><div class="ql"><span class="qn">19</span>What outcome are you most hoping for from this diagnostic report?</div><div class="opts">
+      <button class="opt" data-k="ou" data-v="Understand what I actually own">Understand what I actually own</button>
+      <button class="opt" data-k="ou" data-v="Confirm I'm on the right track">Confirm I'm on the right track</button>
+      <button class="opt" data-k="ou" data-v="Find out what I'm missing">Find out what I'm missing</button>
+      <button class="opt" data-k="ou" data-v="Identify risks before they matter">Identify risks before they matter</button>
+      <button class="opt" data-k="ou" data-v="Get clarity before making changes">Get clarity before making changes</button>
+    </div></div>
+    <div class="qb"><div class="ql"><span class="qn">20</span>How would you describe your confidence in your current portfolio?</div><div class="opts">
+      <button class="opt" data-k="cf" data-cls="sg" data-v="Very confident">Very confident</button>
+      <button class="opt" data-k="cf" data-v="Somewhat confident">Somewhat confident</button>
+      <button class="opt" data-k="cf" data-v="Unsure">Unsure</button>
+      <button class="opt" data-k="cf" data-cls="sr" data-v="Not confident">Not confident</button>
+      <button class="opt" data-k="cf" data-cls="sr" data-v="No idea">No idea</button>
+    </div></div>
+    <div class="contact-block">
+      <div class="cl">Where should I send your report?</div>
+      <input class="txt wide" type="text" id="f_name" placeholder="Full name">
+      <input class="txt wide" type="email" id="f_email" placeholder="you@email.com">
+      <div class="err" id="err"></div>
+    </div>
+    <div class="disc"><p>By submitting, you authorize Flatley Advisory Group LLC to review your portfolio statements for diagnostic and educational purposes only. This does not constitute an advisory relationship. All information is kept strictly confidential.</p></div>
+  </div>
+
+  <div class="step" id="done">
+    <div class="done">
+      <div class="dc">&#10003;</div>
+      <h2>Profile <em>complete</em></h2>
+      <p>Your diagnostic profile has been saved. Upload your statements to generate your AlphaIQ report.</p>
+      <a class="db" href="https://alphaiq-cwjf80n42-flatley-advisory-group.vercel.app/upload">Upload your statements</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="nav" id="nav">
+  <button class="bb" id="back" style="visibility:hidden">&#8592; Back</button>
+  <div class="dots" id="dots"></div>
+  <button class="bn" id="next">Continue</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL='https://jyjwynnwpybajmklbhvz.supabase.co';
+const SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp5and5bm53cHliYWpta2xiaHZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYxMDkzODEsImV4cCI6MjA5MTY4NTM4MX0.SZ609gJCDE29NwqAlZIJy6T2Mn_3B11BuWNVR_YhAXc';
+let _sb=null;
+function getSb(){if(_sb)return _sb;if(window.supabase){_sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);return _sb;}return null;}
+const LABELS={age:'Age',inc:'Annual income',nw:'Investable net worth',ob:'Primary objective',ho:'Time horizon',ri:'20% drop reaction',lq:'Liquidity needs',um:'Unmet areas',cu:'Custodians',ac:'Account types',st:'Portfolio structure',mf:'Management fee',er:'Fund expense ratio',wa:'Wants more of',iv:'Desired involvement',lp:'Visibility preference',al:'Technology comfort',co:'Wants to understand better',ou:'Hoped outcome',cf:'Confidence'};
+let step=1;const TOTAL=4;const single={};const multi={};const text={};
+function renderDots(){const d=document.getElementById('dots');d.innerHTML='';for(let i=1;i<=TOTAL;i++){const x=document.createElement('div');x.className='dot'+(i===step?' act':'');d.appendChild(x);}}
+function render(){document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));document.getElementById('s'+step).classList.add('active');document.getElementById('pf').style.width=(step/TOTAL*100)+'%';document.getElementById('sl').textContent=step+' of '+TOTAL;document.getElementById('back').style.visibility=step>1?'visible':'hidden';document.getElementById('next').textContent=step===TOTAL?'Submit':'Continue';renderDots();window.scrollTo(0,0);}
+document.querySelectorAll('.opt').forEach(btn=>{btn.addEventListener('click',()=>{const k=btn.dataset.k,v=btn.dataset.v,cls=btn.dataset.cls||'sel';if(btn.dataset.multi==='1'){if(!multi[k])multi[k]=new Set();if(btn.classList.contains('sel')){btn.classList.remove('sel');multi[k].delete(v);}else{btn.classList.add('sel');multi[k].add(v);}}else{btn.closest('.opts').querySelectorAll('.opt').forEach(o=>o.classList.remove('sel','sg','sr'));btn.classList.add(cls);single[k]=v;}});});
+document.querySelectorAll('.txt[data-k]').forEach(inp=>{inp.addEventListener('input',()=>{text[inp.dataset.k]=inp.value;});});
+function showDone(){document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));document.getElementById('done').classList.add('active');document.getElementById('nav').style.display='none';document.getElementById('pf').style.width='100%';document.getElementById('sl').textContent='Complete';window.scrollTo(0,0);}
+async function submitProfile(){
+  const err=document.getElementById('err');
+  const name=(document.getElementById('f_name').value||'').trim();
+  const email=(document.getElementById('f_email').value||'').trim();
+  if(!email||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){err.textContent='Please enter a valid email so I can send your report.';return;}
+  err.textContent='';
+  const btn=document.getElementById('next');btn.disabled=true;btn.textContent='Saving';
+  const answers={};
+  for(const k in single)answers[LABELS[k]||k]=single[k];
+  for(const k in multi)answers[LABELS[k]||k]=Array.from(multi[k]);
+  for(const k in text)if(text[k]&&LABELS[k])answers[LABELS[k]]=text[k];
+  try{
+    const client=getSb();
+    if(!client){err.textContent='Connection issue. Please refresh and try again.';btn.disabled=false;btn.textContent='Submit';return;}
+    const{error}=await client.from('diagnostic_profiles').insert({name,email,answers});
+    if(error)throw error;
+    showDone();
+  }catch(e){
+    console.error(e);
+    err.textContent='Something went wrong saving your profile. Please try again.';
+    btn.disabled=false;btn.textContent='Submit';
+  }
+}
+document.getElementById('next').addEventListener('click',()=>{if(step<TOTAL){step++;render();}else{submitProfile();}});
+document.getElementById('back').addEventListener('click',()=>{if(step>1){step--;render();}});
+renderDots();
+</script>
+</body>
+</html>
